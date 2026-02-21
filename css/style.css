@@ -366,6 +366,91 @@ a:hover {
 .param { color: #fb923c; }
 .str { color: #34d399; }
 
+/* Tech Marquee Bar */
+.tech-marquee {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background: linear-gradient(
+        90deg,
+        rgba(99, 102, 241, 0.04),
+        rgba(56, 189, 248, 0.06),
+        rgba(99, 102, 241, 0.04)
+    );
+}
+
+.tech-marquee::before,
+.tech-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.tech-marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--color-bg), transparent);
+}
+
+.tech-marquee::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--color-bg), transparent);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 35s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+}
+
+.marquee-item {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    padding: 0.3rem 0.5rem;
+    transition: color 0.3s;
+}
+
+.marquee-item:hover {
+    color: var(--color-primary-bright);
+}
+
+.marquee-divider {
+    color: var(--color-text-dim);
+    opacity: 0.3;
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
+    user-select: none;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 /* About */
 .about {
     padding: 6rem 0;
