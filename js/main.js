@@ -1,46 +1,92 @@
 // ========================
-// Matrix Rain Background
+// Neural Network Background
 // ========================
-const canvas = document.getElementById('matrix-bg');
+const canvas = document.getElementById('neural-bg');
 if (canvas) {
     const ctx = canvas.getContext('2d');
+    let nodes = [];
+    const nodeCount = 60;
+    const connectionDistance = 150;
 
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     }
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        initNodes();
+    });
 
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*(){}[]|;:<>,.?/~`import def class return yield async await for in if else elif try except finally with as from lambda';
-    const fontSize = 14;
-    let columns = Math.floor(canvas.width / fontSize);
-    let drops = Array(columns).fill(1);
-
-    function drawMatrix() {
-        ctx.fillStyle = 'rgba(10, 10, 10, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.fillStyle = '#00ff41';
-        ctx.font = fontSize + 'px monospace';
-
-        for (let i = 0; i < drops.length; i++) {
-            const text = chars[Math.floor(Math.random() * chars.length)];
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
-            drops[i]++;
+    function initNodes() {
+        nodes = [];
+        for (let i = 0; i < nodeCount; i++) {
+            nodes.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                radius: Math.random() * 2 + 1,
+                pulse: Math.random() * Math.PI * 2
+            });
         }
     }
+    initNodes();
 
-    setInterval(drawMatrix, 50);
+    function drawNetwork() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    window.addEventListener('resize', () => {
-        columns = Math.floor(canvas.width / fontSize);
-        drops = Array(columns).fill(1);
-    });
+        // Draw connections
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const dx = nodes[i].x - nodes[j].x;
+                const dy = nodes[i].y - nodes[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < connectionDistance) {
+                    const opacity = (1 - dist / connectionDistance) * 0.15;
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.strokeStyle = `rgba(99, 102, 241, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // Draw nodes
+        for (const node of nodes) {
+            node.pulse += 0.02;
+            const pulseSize = Math.sin(node.pulse) * 0.5 + 0.5;
+
+            // Glow
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, node.radius * 3, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(99, 102, 241, ${0.03 * pulseSize})`;
+            ctx.fill();
+
+            // Node
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(129, 140, 248, ${0.3 + 0.2 * pulseSize})`;
+            ctx.fill();
+
+            // Move
+            node.x += node.vx;
+            node.y += node.vy;
+
+            // Wrap around edges
+            if (node.x < 0) node.x = canvas.width;
+            if (node.x > canvas.width) node.x = 0;
+            if (node.y < 0) node.y = canvas.height;
+            if (node.y > canvas.height) node.y = 0;
+        }
+
+        requestAnimationFrame(drawNetwork);
+    }
+
+    drawNetwork();
 }
 
 // ========================
@@ -62,23 +108,27 @@ function typeText(element, text, speed, callback) {
     type();
 }
 
-// Start typing animations after page load
 window.addEventListener('load', () => {
+    const heroGreeting = document.getElementById('hero-greeting');
     const heroName = document.getElementById('hero-name');
     const heroRole = document.getElementById('hero-role');
     const heroLocation = document.getElementById('hero-location');
 
     setTimeout(() => {
-        typeText(heroName, 'Bogdan Voloshyn', 70, () => {
+        typeText(heroGreeting, 'Hello, I\'m', 60, () => {
             setTimeout(() => {
-                typeText(heroRole, '> Python Engineer', 50, () => {
+                typeText(heroName, 'Bogdan Voloshyn', 65, () => {
                     setTimeout(() => {
-                        typeText(heroLocation, '> Lviv, Ukraine', 50);
-                    }, 300);
+                        typeText(heroRole, 'Python AI Engineer', 50, () => {
+                            setTimeout(() => {
+                                typeText(heroLocation, 'Lviv, Ukraine', 50);
+                            }, 200);
+                        });
+                    }, 200);
                 });
-            }, 300);
+            }, 200);
         });
-    }, 500);
+    }, 400);
 });
 
 // ========================
@@ -129,12 +179,22 @@ window.addEventListener('scroll', highlightNav);
 // Scroll Reveal Animation
 // ========================
 function setupReveal() {
-    const revealElements = document.querySelectorAll('.terminal-window, .section-title');
+    const revealSelectors = [
+        '.section-header',
+        '.about-grid',
+        '.skill-category',
+        '.project-card',
+        '.edu-card',
+        '.contact-text',
+        '.contact-card',
+        '.code-preview'
+    ];
 
-    revealElements.forEach(el => {
-        if (!el.closest('.hero')) {
-            el.classList.add('reveal');
-        }
+    const revealElements = document.querySelectorAll(revealSelectors.join(', '));
+
+    revealElements.forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = `${(i % 4) * 0.1}s`;
     });
 
     const observer = new IntersectionObserver((entries) => {
@@ -145,7 +205,7 @@ function setupReveal() {
         });
     }, {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -40px 0px'
     });
 
     document.querySelectorAll('.reveal').forEach(el => {

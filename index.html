@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bogdan@portfolio:~$</title>
+    <title>Bogdan Voloshyn — Python AI Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <canvas id="matrix-bg"></canvas>
-    <div class="scanline"></div>
+    <canvas id="neural-bg"></canvas>
 
     <header class="header">
         <nav class="nav">
-            <a href="#" class="nav-logo">bogdan@portfolio<span class="blink">:</span>~$</a>
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">&lt;/&gt;</span> bogdan<span class="logo-accent">.ai</span>
+            </a>
             <ul class="nav-links">
-                <li><a href="#home">./home</a></li>
-                <li><a href="#about">./about</a></li>
-                <li><a href="#skills">./skills</a></li>
-                <li><a href="#projects">./projects</a></li>
-                <li><a href="#education">./education</a></li>
-                <li><a href="#contact">./contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
@@ -32,41 +36,68 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-content">
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">bash — 80x24</span>
+                <div class="hero-badge">Python &middot; AI &middot; Backend</div>
+                <h1 class="hero-title">
+                    <span class="hero-greeting" id="hero-greeting"></span>
+                    <span class="hero-name" id="hero-name"></span>
+                </h1>
+                <p class="hero-subtitle" id="hero-role"></p>
+                <p class="hero-location" id="hero-location"></p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View Experience</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-preview">
+                    <div class="code-header">
+                        <span class="code-dot"></span>
+                        <span class="code-dot"></span>
+                        <span class="code-dot"></span>
+                        <span class="code-filename">bogdan.py</span>
                     </div>
-                    <div class="terminal-body">
-                        <p class="terminal-line"><span class="prompt">$</span> whoami</p>
-                        <h1 class="hero-title typing" id="hero-name"></h1>
-                        <p class="terminal-line"><span class="prompt">$</span> cat role.txt</p>
-                        <p class="hero-subtitle typing-delay" id="hero-role"></p>
-                        <p class="terminal-line"><span class="prompt">$</span> echo $LOCATION</p>
-                        <p class="hero-location typing-delay-2" id="hero-location"></p>
-                        <div class="hero-actions">
-                            <a href="#projects" class="btn btn-primary"><span class="prompt">$</span> ls projects/</a>
-                            <a href="#contact" class="btn btn-secondary"><span class="prompt">$</span> mail bogdan</a>
-                        </div>
-                    </div>
+                    <pre class="code-body"><code><span class="kw">class</span> <span class="cls">AIEngineer</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="param">self</span>):
+        <span class="param">self</span>.name = <span class="str">"Bogdan Voloshyn"</span>
+        <span class="param">self</span>.role = <span class="str">"Python AI Engineer"</span>
+        <span class="param">self</span>.experience = <span class="str">"4+ years"</span>
+        <span class="param">self</span>.stack = [
+            <span class="str">"Python"</span>, <span class="str">"LLMs"</span>,
+            <span class="str">"RAG"</span>, <span class="str">"FastAPI"</span>,
+            <span class="str">"Django"</span>, <span class="str">"Cloud"</span>
+        ]
+
+    <span class="kw">def</span> <span class="fn">build</span>(<span class="param">self</span>):
+        <span class="kw">return</span> <span class="str">"Production-ready AI"</span></code></pre>
                 </div>
             </div>
         </section>
 
         <section id="about" class="about">
             <div class="container">
-                <h2 class="section-title"><span class="prompt">$</span> cat about.txt</h2>
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">about.txt</span>
+                <div class="section-header">
+                    <span class="section-label">01</span>
+                    <h2 class="section-title">About Me</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Self-driven Python Developer with <strong>4+ years</strong> of experience building scalable backend systems and delivering production-ready solutions.</p>
+                        <p>Passionate about <strong>AI</strong> and constantly expanding my expertise in <strong>LLMs</strong>, <strong>RAG architectures</strong>, and <strong>vector databases</strong>. Winner of the <strong>Cisco Hackathon 2024</strong> for developing AI tools.</p>
+                        <p>Known for fast problem-solving, strong work ethic, and a drive to bring maximum value through clean, maintainable code.</p>
                     </div>
-                    <div class="terminal-body">
-                        <p class="about-content">Self-driven Python Developer with 4+ years of experience building scalable backend systems and delivering production-ready solutions. Passionate about AI and constantly expanding my expertise in LLMs, RAG architectures, and vector databases. Winner of the Cisco Hackathon 2024 for developing AI tools. Known for fast problem-solving, strong work ethic, and a drive to bring maximum value through clean, maintainable code.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <span class="highlight-number">4+</span>
+                            <span class="highlight-label">Years Experience</span>
+                        </div>
+                        <div class="highlight-card">
+                            <span class="highlight-number">AI</span>
+                            <span class="highlight-label">LLMs &amp; RAG</span>
+                        </div>
+                        <div class="highlight-card">
+                            <span class="highlight-number">&#127942;</span>
+                            <span class="highlight-label">Cisco Hackathon Winner</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,49 +105,74 @@
 
         <section id="skills" class="skills-section">
             <div class="container">
-                <h2 class="section-title"><span class="prompt">$</span> python3 -c "import skills"</h2>
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">python3</span>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="skill-block">
-                            <p class="code-line"><span class="py-prompt">&gt;&gt;&gt;</span> <span class="keyword">from</span> bogdan <span class="keyword">import</span> technical_skills</p>
-                            <p class="code-line"><span class="py-prompt">&gt;&gt;&gt;</span> technical_skills.list()</p>
-                            <div class="skills-output">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">Linux</span>
-                                <span class="skill-tag">K8s</span>
-                                <span class="skill-tag">Django</span>
-                                <span class="skill-tag">DRF</span>
-                                <span class="skill-tag">FastAPI</span>
-                                <span class="skill-tag">Docker</span>
-                                <span class="skill-tag">SQL</span>
-                                <span class="skill-tag">GCP</span>
-                                <span class="skill-tag">Azure</span>
-                                <span class="skill-tag">AWS</span>
-                                <span class="skill-tag">LLM</span>
-                                <span class="skill-tag">RAG</span>
-                                <span class="skill-tag">LangChain</span>
-                                <span class="skill-tag">Celery</span>
-                                <span class="skill-tag">PostgreSQL</span>
-                                <span class="skill-tag">Redis</span>
-                                <span class="skill-tag">Git</span>
-                                <span class="skill-tag">GitHub Actions</span>
-                                <span class="skill-tag">MongoDB</span>
-                                <span class="skill-tag">Pinecone</span>
-                            </div>
+                <div class="section-header">
+                    <span class="section-label">02</span>
+                    <h2 class="section-title">Tech Stack</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <span class="skill-icon">&#129302;</span> AI / ML
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag ai">LLM</span>
+                            <span class="skill-tag ai">RAG</span>
+                            <span class="skill-tag ai">LangChain</span>
+                            <span class="skill-tag ai">Pinecone</span>
                         </div>
-                        <div class="skill-block">
-                            <p class="code-line"><span class="py-prompt">&gt;&gt;&gt;</span> <span class="keyword">from</span> bogdan <span class="keyword">import</span> languages</p>
-                            <p class="code-line"><span class="py-prompt">&gt;&gt;&gt;</span> languages.list()</p>
-                            <div class="skills-output">
-                                <span class="skill-tag lang">English — Full Professional</span>
-                                <span class="skill-tag lang">Ukrainian — Full Professional</span>
-                            </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <span class="skill-icon">&#128013;</span> Python
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag python">Python</span>
+                            <span class="skill-tag python">Django</span>
+                            <span class="skill-tag python">DRF</span>
+                            <span class="skill-tag python">FastAPI</span>
+                            <span class="skill-tag python">Celery</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <span class="skill-icon">&#9729;&#65039;</span> Cloud &amp; DevOps
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag cloud">GCP</span>
+                            <span class="skill-tag cloud">Azure</span>
+                            <span class="skill-tag cloud">AWS</span>
+                            <span class="skill-tag cloud">Docker</span>
+                            <span class="skill-tag cloud">K8s</span>
+                            <span class="skill-tag cloud">GitHub Actions</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <span class="skill-icon">&#128451;</span> Databases
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag db">PostgreSQL</span>
+                            <span class="skill-tag db">Redis</span>
+                            <span class="skill-tag db">MongoDB</span>
+                            <span class="skill-tag db">SQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <span class="skill-icon">&#127760;</span> Other
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag other">Linux</span>
+                            <span class="skill-tag other">Git</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <span class="skill-icon">&#128172;</span> Languages
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag lang">English — Professional</span>
+                            <span class="skill-tag lang">Ukrainian — Professional</span>
                         </div>
                     </div>
                 </div>
@@ -125,25 +181,22 @@
 
         <section id="projects" class="projects">
             <div class="container">
-                <h2 class="section-title"><span class="prompt">$</span> ls -la ~/projects/</h2>
+                <div class="section-header">
+                    <span class="section-label">03</span>
+                    <h2 class="section-title">Experience</h2>
+                </div>
 
-                <article class="project-card terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">~/projects/idp_softserve</span>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="project-meta">
-                            <p class="code-line"><span class="prompt">$</span> cat README.md</p>
-                        </div>
-                        <div class="project-info">
+                <div class="timeline">
+                    <article class="project-card">
+                        <div class="card-accent"></div>
+                        <div class="card-content">
                             <div class="project-header">
-                                <h3>IDP Project</h3>
-                                <span class="project-date">03/2024 - Present</span>
+                                <div>
+                                    <h3>IDP Project</h3>
+                                    <p class="project-company">SoftServe &middot; USA</p>
+                                </div>
+                                <span class="project-date">03/2024 — Present</span>
                             </div>
-                            <p class="project-company">SoftServe &middot; USA</p>
                             <ul class="project-details">
                                 <li>Successfully integrated third-party identity providers (IdPs) like Google, and Microsoft Azure AD</li>
                                 <li>Automated testing, building, and deployment processes to improve development efficiency</li>
@@ -161,26 +214,18 @@
                                 <span>K8s</span>
                             </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="project-card terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">~/projects/magpie_techstack</span>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="project-meta">
-                            <p class="code-line"><span class="prompt">$</span> cat README.md</p>
-                        </div>
-                        <div class="project-info">
+                    <article class="project-card">
+                        <div class="card-accent"></div>
+                        <div class="card-content">
                             <div class="project-header">
-                                <h3>Lead Developer — Magpie Project</h3>
-                                <span class="project-date">2023 - 2024</span>
+                                <div>
+                                    <h3>Lead Developer — Magpie Project</h3>
+                                    <p class="project-company">Techstack &middot; EU</p>
+                                </div>
+                                <span class="project-date">2023 — 2024</span>
                             </div>
-                            <p class="project-company">Techstack &middot; EU</p>
                             <ul class="project-details">
                                 <li>Led a team of 5 engineers to build an AI-driven platform delivering automated feedback on chat, call, and email interactions for customer service teams</li>
                                 <li>Designed and deployed backend services using FastAPI and ETL pipelines for processing multimodal data</li>
@@ -200,26 +245,18 @@
                                 <span>Pinecone</span>
                             </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="project-card terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">~/projects/car_crm_startupsoft</span>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="project-meta">
-                            <p class="code-line"><span class="prompt">$</span> cat README.md</p>
-                        </div>
-                        <div class="project-info">
+                    <article class="project-card">
+                        <div class="card-accent"></div>
+                        <div class="card-content">
                             <div class="project-header">
-                                <h3>Car Dealership CRM</h3>
-                                <span class="project-date">2022 - 2024</span>
+                                <div>
+                                    <h3>Car Dealership CRM</h3>
+                                    <p class="project-company">StartupSoft &middot; USA</p>
+                                </div>
+                                <span class="project-date">2022 — 2024</span>
                             </div>
-                            <p class="project-company">StartupSoft &middot; USA</p>
                             <ul class="project-details">
                                 <li>Gathered project requirements through active participation in client meetings, ensuring thorough understanding of client needs</li>
                                 <li>Utilized Django REST framework to develop and integrate new and existing API endpoints, enhancing system connectivity and scalability</li>
@@ -236,26 +273,18 @@
                                 <span>RAG</span>
                             </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="project-card terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">~/projects/mentor_mate_academy</span>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="project-meta">
-                            <p class="code-line"><span class="prompt">$</span> cat README.md</p>
-                        </div>
-                        <div class="project-info">
+                    <article class="project-card">
+                        <div class="card-accent"></div>
+                        <div class="card-content">
                             <div class="project-header">
-                                <h3>Python Mentor</h3>
-                                <span class="project-date">05/2023 - 2024</span>
+                                <div>
+                                    <h3>Python Mentor</h3>
+                                    <p class="project-company">Mate Academy &middot; UA</p>
+                                </div>
+                                <span class="project-date">05/2023 — 2024</span>
                             </div>
-                            <p class="project-company">Mate Academy &middot; UA</p>
                             <ul class="project-details">
                                 <li>Meticulously reviewing and providing constructive feedback on students' Python assignments to enhance their coding skills</li>
                                 <li>Actively engaging with students by answering questions in real-time through chat and Zoom calls</li>
@@ -267,26 +296,18 @@
                                 <span>Code Review</span>
                             </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="project-card terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">~/projects/crm_clothing_store</span>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="project-meta">
-                            <p class="code-line"><span class="prompt">$</span> cat README.md</p>
-                        </div>
-                        <div class="project-info">
+                    <article class="project-card">
+                        <div class="card-accent"></div>
+                        <div class="card-content">
                             <div class="project-header">
-                                <h3>CRM System</h3>
-                                <span class="project-date">01/2021 - 01/2022</span>
+                                <div>
+                                    <h3>CRM System</h3>
+                                    <p class="project-company">Clothing Store &middot; UA</p>
+                                </div>
+                                <span class="project-date">01/2021 — 01/2022</span>
                             </div>
-                            <p class="project-company">Clothing Store &middot; UA</p>
                             <ul class="project-details">
                                 <li>Built a custom CRM application for managing customer and prospect data and tracking customer interactions</li>
                             </ul>
@@ -299,29 +320,23 @@
                                 <span>Git</span>
                             </div>
                         </div>
-                    </div>
-                </article>
-
+                    </article>
+                </div>
             </div>
         </section>
 
         <section id="education" class="education">
             <div class="container">
-                <h2 class="section-title"><span class="prompt">$</span> cat education.log</h2>
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">education.log</span>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="edu-entry">
-                            <p class="code-line"><span class="comment"># Education</span></p>
-                            <p class="code-line"><span class="key">degree</span>  = <span class="string">"Master of Fire Safety Engineering"</span></p>
-                            <p class="code-line"><span class="key">school</span>  = <span class="string">"Lviv State University of Life Safety"</span></p>
-                            <p class="code-line"><span class="key">period</span>  = <span class="string">"2008 - 2013"</span></p>
-                        </div>
+                <div class="section-header">
+                    <span class="section-label">04</span>
+                    <h2 class="section-title">Education</h2>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-icon">&#127891;</div>
+                    <div class="edu-info">
+                        <h3>Master of Fire Safety Engineering</h3>
+                        <p class="edu-school">Lviv State University of Life Safety</p>
+                        <p class="edu-period">2008 — 2013</p>
                     </div>
                 </div>
             </div>
@@ -329,24 +344,32 @@
 
         <section id="contact" class="contact">
             <div class="container">
-                <h2 class="section-title"><span class="prompt">$</span> ./connect.sh</h2>
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">connect.sh</span>
-                    </div>
-                    <div class="terminal-body">
-                        <p class="contact-text code-line"><span class="comment"># I'm always open to new opportunities and collaborations</span></p>
-                        <p class="contact-text code-line"><span class="comment"># Feel free to reach out!</span></p>
-                        <div class="contact-links">
-                            <a href="mailto:voloshynbogdan1@gmail.com" class="btn btn-primary"><span class="prompt">$</span> mail voloshynbogdan1@gmail.com</a>
-                            <a href="https://linkedin.com/in/bogdanvoloshyn" class="btn btn-secondary" target="_blank" rel="noopener"><span class="prompt">$</span> open linkedin</a>
-                            <a href="https://github.com/Sofbog" class="btn btn-secondary" target="_blank" rel="noopener"><span class="prompt">$</span> open github</a>
-                            <a href="https://www.cloudskillsboost.google/public_profiles/36d4756a-344b-473f-8e3c-762a4a43e73e" class="btn btn-secondary" target="_blank" rel="noopener"><span class="prompt">$</span> open gcloud</a>
-                        </div>
-                    </div>
+                <div class="section-header">
+                    <span class="section-label">05</span>
+                    <h2 class="section-title">Let's Connect</h2>
+                </div>
+                <p class="contact-text">I'm always open to new opportunities, collaborations, and interesting AI projects. Feel free to reach out!</p>
+                <div class="contact-links">
+                    <a href="mailto:voloshynbogdan1@gmail.com" class="contact-card">
+                        <span class="contact-icon">&#9993;</span>
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">voloshynbogdan1@gmail.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/bogdanvoloshyn" class="contact-card" target="_blank" rel="noopener">
+                        <span class="contact-icon">&#128101;</span>
+                        <span class="contact-label">LinkedIn</span>
+                        <span class="contact-value">bogdanvoloshyn</span>
+                    </a>
+                    <a href="https://github.com/Sofbog" class="contact-card" target="_blank" rel="noopener">
+                        <span class="contact-icon">&#128187;</span>
+                        <span class="contact-label">GitHub</span>
+                        <span class="contact-value">Sofbog</span>
+                    </a>
+                    <a href="https://www.cloudskillsboost.google/public_profiles/36d4756a-344b-473f-8e3c-762a4a43e73e" class="contact-card" target="_blank" rel="noopener">
+                        <span class="contact-icon">&#9729;&#65039;</span>
+                        <span class="contact-label">Google Cloud</span>
+                        <span class="contact-value">Skills Profile</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -354,7 +377,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p><span class="prompt">$</span> echo "&copy; 2026 Bogdan Voloshyn" <span class="cursor">&#9608;</span></p>
+            <p>&copy; 2026 Bogdan Voloshyn. Built with Python spirit.</p>
         </div>
     </footer>
 
